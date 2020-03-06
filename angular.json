@@ -24,9 +24,21 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/spur-template/dist/css/demo.css",
+              "./node_modules/spur-template/dist/css/demo.min.css",
+              "./node_modules/spur-template/dist/css/spur.css",
+              "./node_modules/spur-template/dist/css/spur.min.css",
+              "./node_modules/spur-template/dist/css/div.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/spur-template/dist/js/chart-js-config.js",
+              "./node_modules/spur-template/dist/js/spur.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+
+            ]
           },
           "configurations": {
             "production": {
