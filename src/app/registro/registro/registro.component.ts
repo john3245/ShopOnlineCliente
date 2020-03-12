@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService, TokenPayLoad} from '../../auth.service'
+
+import {Router} from '@angular/router'
+import { Token } from '@angular/compiler/src/ml_parser/lexer'
 
 @Component({
   selector: 'app-registro',
@@ -6,10 +10,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+  public state:string='inactive'
+  credentials: TokenPayLoad={
+      id:0,
+      Nombre : '',
+      Apellidos:'',
+      email : '',
+      password : '',
+  }
+  constructor (private auth: AuthService,private router : Router){}
+  ngOnInit(){
+      
+  }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  register()
+  {
+      this.auth.register(this.credentials).subscribe(
+          ()=>{
+              this.router.navigateByUrl('/login')
+          },
+          err =>{console.error(err)}
+      )
   }
 
 }

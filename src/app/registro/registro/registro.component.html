@@ -1,0 +1,32 @@
+
+
+
+
+    <div class="form-screen">
+        <a href="index.html" class="spur-logo"><i class="fas fa-dolly"></i> <span>ShopOnline.com</span></a>
+        <div class="card account-dialog">
+            <div class="card-header bg-primary text-white"> Crear cuenta </div>
+            <div class="card-body">
+                <form (submit)="register()" class="action">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name ="Nombre" aria-describedby="" placeholder="Nombre" [(ngModel)]="credentials.Nombre">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name ="Apellidos" aria-describedby="" placeholder="Apellidos" [(ngModel)]="credentials.Apellidos">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name ="email" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="credentials.email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name ="password" placeholder="Password" [(ngModel)]="credentials.password">
+                    </div>
+                    <div class="account-dialog-actions">
+                        <button type="submit" class="btn btn-primary">Sign up</button>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+

@@ -1,52 +1,18 @@
-<div *ngIf="!auth.isLoggedIn() && !auth.loggedIn" >
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a routerLink="/home" class="spur-logo"><i class="fas fa-dolly"></i> <span>ShopOnline.com</span></a>
-    <button   class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li  class="nav-item active">
-           
-          <a class="nav-link"    routerLink="/login">Login<span class="sr-only">(current)</span></a>
-        </li>
-        <li   class="nav-item active">
-          <a class="nav-link"    routerLink="/registro">Registro</a>
-        </li>
-       
-        
-        
-      
-        
-      </ul>
-      
-    </div>
-  </nav>
-
-
-
-<router-outlet></router-outlet>
-</div>
-
-<div *ngIf="auth.isLoggedIn() || auth.loggedIn">
-  <div class="dash">
+<div class="dash">
     <div class="dash-nav dash-nav-dark">
         <header>
             <a href="#!" class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </a>
-            <a routerLink="" class="spur-logo"><i class="fas fa-dolly"></i> <span>Bienvenido
+            <a href="index.html" class="spur-logo"><i class="fas fa-dolly"></i> <span>Bienvenido
             </span></a>
         </header>
         <nav class="dash-nav-list">
-            <a routerLink="" class="dash-nav-item">
+            <a href="index.html" class="dash-nav-item">
                 <i class="fas fa-home"></i> Dashboard </a>
-            <div  class="dash-nav-dropdown">
+            <div class="dash-nav-dropdown">
                 <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                    <i class="fas fa-chart-bar"></i> suppliers </a>
+                    <i class="fas fa-chart-bar"></i> Charts </a>
                 <div class="dash-nav-dropdown-menu">
                     <a href="chartjs.html" class="dash-nav-dropdown-item">Chart.js</a>
                 </div>
@@ -112,8 +78,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                         <a class="dropdown-item" href="#!">Profile</a>
-                        <a *ngIf="auth.loggedIn" class="dropdown-item" routerLink="/home"  (click)="auth.logout()" >Logout</a>
-                        <a *ngIf="auth.isLoggedIn()" class="dropdown-item"  routerLink="/home"  (click)="auth.logoutt()" >Logout</a>
+                        <a class="dropdown-item" routerLink="/home"  (click)="auth.logout()" >Logout</a>
                     </div>
                 </div>
             </div>
@@ -121,10 +86,7 @@
         <main class="dash-content">
             <div class="container-fluid">
                 <h1 class=""></h1>
-                
-                <router-outlet></router-outlet>
+                <!-- put your rows / columns here -->
             </div>
         </main>
     </div>
-
-</div>
