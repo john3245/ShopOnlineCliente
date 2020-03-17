@@ -18,8 +18,33 @@ import { AuthenticationService } from './authentification.service';
 import { PrincipalComponent } from './principal/principal.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { AuthGuard } from './auth.guard';
 
+import { AuthGuard } from './auth.guard';
+//gmail
+
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { ProfileComponent } from './profile/profile.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductosComponent } from './productos/productos.component';
+import { InsertproductoComponent } from './insertproducto/insertproducto.component';
+import { DepartamentosComponent } from './departamentos/departamentos.component';
+import { InsertdepartamentoComponent } from './insertdepartamento/insertdepartamento.component';
+  
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("174900287226-fi4ps93mkotmahccdmq3p8b4gdmo6i5f.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("502016127153720")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 
 
@@ -27,15 +52,20 @@ import { AuthGuard } from './auth.guard';
 
 const routes :Routes=[
 
-  {path : '',component: PrincipalComponent,canActivate:[AuthGuardService]},
+ 
   {path : '',component: HomeComponent},
   {path : 'home',component: HomeComponent},
   {path : 'prueba',component: NavBarComponent },
   {path : 'login',component: LoginComponent},
   {path : 'registro',component: RegistroComponent},
-  {path : 'inicio',component: InicioComponent,canActivate:[AuthGuardService],
-
-}
+  {path : 'profile',component: ProfileComponent},
+  {path : 'altadepartamentos',component: InsertdepartamentoComponent},
+  {path : 'departamentos',component: DepartamentosComponent},
+  {path : 'productos',component: ProductosComponent},
+  {path : 'altaproductos',component: InsertproductoComponent},
+  {path : 'inicio',component: InicioComponent,canActivate:[AuthGuardService],},
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: 'not-found' }
 
 ]
 
@@ -49,7 +79,13 @@ const routes :Routes=[
     InicioComponent,
     PrincipalComponent,
     DashboardComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProfileComponent,
+    PageNotFoundComponent,
+    ProductosComponent,
+    InsertproductoComponent,
+    DepartamentosComponent,
+    InsertdepartamentoComponent
   
   ],
   imports: [
@@ -57,9 +93,13 @@ const routes :Routes=[
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    SocialLoginModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthenticationService,AuthGuardService],
+  providers: [AuthenticationService,AuthGuardService,{
+    provide: AuthServiceConfig,
+    useFactory: provideConfig
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService, TokenPayLoad} from '../auth.service'
+import {AuthService2, TokenPayLoad} from '../auth.service'
 import {Router} from '@angular/router'
 import { Token } from '@angular/compiler/src/ml_parser/lexer'
+//gmail
+import { SocialUser } from "angularx-social-login";
+ 
+
+
+import { AuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+ 
 
 @Component({
   selector: 'app-login',
@@ -19,11 +27,29 @@ export class LoginComponent implements OnInit {
       password : '',
   }
 
-  constructor (public auth: AuthService,public router : Router){}
+  constructor (public auth: AuthService2,public router : Router,private authService: AuthService){}
 
-    ngOnInit(){
-        
-    }
+  public user: SocialUser;
+  public loggedIn: boolean;
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+ 
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  } 
+ 
+  signOut(): void {
+    this.authService.signOut();
+  }
+ 
+
+  ngOnInit() {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
+  }
 
     logini()
     {

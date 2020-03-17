@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService, TokenPayLoad} from '../../auth.service'
+import {AuthService2, TokenPayLoad} from '../../auth.service'
 
 import {Router} from '@angular/router'
 import { Token } from '@angular/compiler/src/ml_parser/lexer'
@@ -18,7 +18,7 @@ export class RegistroComponent implements OnInit {
       email : '',
       password : '',
   }
-  constructor (private auth: AuthService,private router : Router){}
+  constructor (private auth: AuthService2,private router : Router){}
   ngOnInit(){
       
   }

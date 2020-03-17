@@ -44,7 +44,7 @@ export interface TokenPayLoad
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService2 {
   private token : string 
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
