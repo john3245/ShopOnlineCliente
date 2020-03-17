@@ -30,6 +30,9 @@ import { ProductosComponent } from './productos/productos.component';
 import { InsertproductoComponent } from './insertproducto/insertproducto.component';
 import { DepartamentosComponent } from './departamentos/departamentos.component';
 import { InsertdepartamentoComponent } from './insertdepartamento/insertdepartamento.component';
+import { ProveedorComponent } from './proveedor/proveedor.component';
+import { InsertproveedorComponent } from './insertproveedor/insertproveedor.component';
+import { InsertpaqueteriaComponent } from './insertpaqueteria/insertpaqueteria.component';
   
 let config = new AuthServiceConfig([
   {
@@ -59,6 +62,9 @@ const routes :Routes=[
   {path : 'login',component: LoginComponent},
   {path : 'registro',component: RegistroComponent},
   {path : 'profile',component: ProfileComponent},
+  {path : 'altapaqueteria',component: InsertpaqueteriaComponent},
+  {path : 'altaproveedor',component: InsertproveedorComponent},
+  {path : 'proveedor',component: ProveedorComponent},
   {path : 'altadepartamentos',component: InsertdepartamentoComponent},
   {path : 'departamentos',component: DepartamentosComponent},
   {path : 'productos',component: ProductosComponent},
@@ -85,7 +91,10 @@ const routes :Routes=[
     ProductosComponent,
     InsertproductoComponent,
     DepartamentosComponent,
-    InsertdepartamentoComponent
+    InsertdepartamentoComponent,
+    ProveedorComponent,
+    InsertproveedorComponent,
+    InsertpaqueteriaComponent
   
   ],
   imports: [
