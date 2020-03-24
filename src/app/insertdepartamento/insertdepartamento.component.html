@@ -1,0 +1,33 @@
+<div *ngIf="auth.isLoggedIn() || auth.loggedIn || user " class="card spur-card">
+
+    <div class="card-header">
+  
+        <div class="spur-card-icon">
+  
+            <i class="fas fa-chart-bar"></i>
+  
+        </div>
+  
+        <div class="spur-card-title"> Insertar Departamento </div>
+  
+    </div>
+  
+    <div class="card-body ">
+  
+        <form (submit)="postDepartamento()" class="action">
+  
+            <div class="form-group">
+  
+                <label for="exampleFormControlInput1">Nombre:</label>
+  
+                <input type="text" class="form-control" name="nombre" placeholder="Departamento" [(ngModel)]="elements.nombre">
+  
+            </div>
+  
+            <button type="submit" class="btn btn-primary">Submit</button>
+  
+        </form>
+  
+    </div>
+  
+  </div>

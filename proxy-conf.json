@@ -1,6 +1,6 @@
 {
    "/usuarios" : {
-        "target" : "http://192.168.51.30:3333",
+        "target" : "http://127.0.0.1:3333",
         "secure" : false
         }
 }

@@ -15,6 +15,7 @@ export class AppComponent {
 
   signOut(): void {
     this.authService.signOut();
+    
   }
 
 public user: SocialUser;
@@ -26,6 +27,8 @@ public loggedIn: boolean;
       this.user = user;
       this.loggedIn = (user != null);
     });
+
+    
   }
 
 

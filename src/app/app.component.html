@@ -27,8 +27,10 @@
   </nav>
 
 
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
 
-<router-outlet></router-outlet>
 
 </div>
 
@@ -44,7 +46,7 @@
         </header>
         <nav class="dash-nav-list">
             <a routerLink="/productos" class="dash-nav-item">
-                <i class="fas fa-grip-horizontal"></i> Productos </a>
+                <i class="fas fa-cart-plus"></i> Productos </a>
                 <a routerLink="/altaproductos" class="dash-nav-item">
                     <i class="
                     fas fa-pen-square"></i> Dar de alta producto </a>  
@@ -52,11 +54,30 @@
                       <i class="fas fa-store-alt"></i> Departamentos</a>    
                       <a routerLink="/altadepartamentos" class="dash-nav-item">
                         <i class="fas fa-store"></i> Dar de alta Departamentos</a> 
+                        <a routerLink="/clientes" class="dash-nav-item">
+                          <i class="
+                          fas fa-address-card"></i> Clientes</a>
+
+                          <a routerLink="/altaclientes" class="dash-nav-item">
+                            <i class="
+                            
+fas fa-diagnoses"></i> Dar de alta Clientes</a>
                         
                         <a routerLink="/proveedor" class="dash-nav-item">
                           <i class="fas fa-truck-monster"></i>Proveedor</a>
                           <a routerLink="/altaproveedor" class="dash-nav-item">
                             <i class="fas fa-truck"></i> Dar de alta Proveedor</a>
+                            <a routerLink="/paqueteria" class="dash-nav-item">
+                              <i class="fas fa-mail-bulk"></i> Paqueterias</a>
+                            <a routerLink="/altapaqueteria" class="dash-nav-item">
+                              <i class="fas fa-dove"></i> Dar de alta Paqueteria</a>
+                              <a routerLink="/altaventa" class="dash-nav-item">
+                                <i class="fas fa-money-check-alt"></i> Dar de alta Venta</a>
+                                <a routerLink="/ventas" class="dash-nav-item">
+                                  <i class="fas fa-dollar-sign"></i>Ventas</a>
+                                
+                     
+                   
                  
             
            
@@ -66,7 +87,7 @@
     </div>
     <div class="dash-app">
         <header class="dash-toolbar">
-            <a href="#!" class="menu-toggle">
+            <a  class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </a>
             
@@ -91,11 +112,16 @@
             <div class="container-fluid">
 
 
-                <div class="alert alert-dark" role="alert" *ngIf="auth.loggedIn || user " >
-                    <h1 class=""> Bienvenid@ {{ user.name }}</h1>
-                
+                <div class="alert alert-dark" role="alert" *ngIf="user" >
+                    <h1 class=""> Bienvenid@ {{ user?.name }}</h1>
+                   
                   </div>
-                
+
+                  <div class="alert alert-dark" role="alert" *ngIf="auth.loggedIn" >
+                    <pre *ngIf="auth.userProfile$ | async as profile">
+                  <h1 class=""> Bienvenid@  {{ profile?.nickname}}</h1>
+                </pre>
+                </div>
                 <router-outlet></router-outlet>
             </div>
         </main>

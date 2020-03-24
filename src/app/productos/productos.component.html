@@ -1,0 +1,36 @@
+
+    <div class="row" *ngIf="auth.isLoggedIn() || auth.loggedIn || user ">
+
+      <div class="col-12 col-md-12"><h2>Productos en Venta</h2></div>
+    
+     
+    
+      <div *ngFor="let item of productos">
+    
+        <div class="col-md-3 col-6">
+    
+          <div class="stats stats-primary" style="width: 12rem;">
+            <img class="card-img-top" src="{{item?.imagen}}" alt="Card image cap" width="100%" height="100%">
+
+    
+            <div class="card-body">
+    
+              <h5 class="card-title">{{item?.nombre}}</h5>
+              <div class="stats-number">${{item?.precio_unitario}}</div>
+              <div class="stats-change">
+                <span class="stats-percentage">Sale  </span>
+                <span class="stats-timeframe">ShopOnline</span>
+                <td><button type="button" (click)="Borrar(item?.id)" class="btn btn-danger">Borrar</button></td>
+            </div>
+            </div>
+    
+          </div>
+    
+        </div>
+    
+      </div>
+    
+    </div>
+
+
+  

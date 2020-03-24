@@ -33,6 +33,11 @@ import { InsertdepartamentoComponent } from './insertdepartamento/insertdepartam
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { InsertproveedorComponent } from './insertproveedor/insertproveedor.component';
 import { InsertpaqueteriaComponent } from './insertpaqueteria/insertpaqueteria.component';
+import { InsertVentaComponent } from './insert-venta/insert-venta.component';
+import { VentasComponent } from './ventas/ventas.component';
+import { PaqueteriaComponent } from './paqueteria/paqueteria.component';
+import { ClientesComponent } from './clientes/clientes.component';
+import { InsertclienteComponent } from './insertcliente/insertcliente.component';
   
 let config = new AuthServiceConfig([
   {
@@ -62,10 +67,15 @@ const routes :Routes=[
   {path : 'login',component: LoginComponent},
   {path : 'registro',component: RegistroComponent},
   {path : 'profile',component: ProfileComponent},
+  {path : 'altaclientes',component: InsertclienteComponent},
+  {path : 'clientes',component: ClientesComponent},
+  {path : 'altaventa',component: InsertVentaComponent},
+  {path : 'paqueteria',component: PaqueteriaComponent},
   {path : 'altapaqueteria',component: InsertpaqueteriaComponent},
   {path : 'altaproveedor',component: InsertproveedorComponent},
   {path : 'proveedor',component: ProveedorComponent},
   {path : 'altadepartamentos',component: InsertdepartamentoComponent},
+  {path : 'ventas',component: VentasComponent},
   {path : 'departamentos',component: DepartamentosComponent},
   {path : 'productos',component: ProductosComponent},
   {path : 'altaproductos',component: InsertproductoComponent},
@@ -94,7 +104,12 @@ const routes :Routes=[
     InsertdepartamentoComponent,
     ProveedorComponent,
     InsertproveedorComponent,
-    InsertpaqueteriaComponent
+    InsertpaqueteriaComponent,
+    InsertVentaComponent,
+    VentasComponent,
+    PaqueteriaComponent,
+    ClientesComponent,
+    InsertclienteComponent
   
   ],
   imports: [

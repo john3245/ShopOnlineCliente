@@ -1,0 +1,93 @@
+<div *ngIf="auth.isLoggedIn() || auth.loggedIn || user " class="card spur-card">
+
+    <div class="card-header">
+  
+        <div class="spur-card-icon">
+  
+            <i class="fas fa-chart-bar"></i>
+  
+        </div>
+  
+        <div class="spur-card-title"> Insertar Ventas </div>
+  
+    </div>
+  
+    <div class="card-body ">
+  
+        <form (submit)="postVenta()" class="action">
+  
+   
+  
+            <div class="form-group">
+  
+                <label for="exampleFormControlSelect1">Cliente:</label>
+  
+                <select class="form-control" id="exampleFormControlSelect1" name="id_cli" [(ngModel)]="elements.id_cli">
+  
+                    <option [value]="item.id" *ngFor="let item of clientes">{{item?.nombre}}</option>
+  
+                </select>
+  
+   
+  
+            </div>
+  
+   
+  
+            <div class="form-group">
+  
+              <label for="exampleFormControlSelect1">Producto:</label>
+  
+              <select class="form-control" id="exampleFormControlSelect1" name="id_pro" [(ngModel)]="elements.id_pro">
+  
+                  <option [value]="item.id" *ngFor="let item of productos">{{item?.nombre}}</option>
+  
+              </select>
+  
+  <br>
+  
+              <div class="form-group">
+  
+                <label for="exampleFormControlInput1">Cantidad Producto:</label>
+  
+                <input type="number" class="form-control" name="cantidad_pro" placeholder="0" [(ngModel)]="elements.cantidad_pro" >
+  
+              </div>
+  
+   
+  
+          </div>
+  
+   
+  
+          <div class="form-group">
+  
+            <label for="exampleFormControlSelect1">Paqueteria:</label>
+  
+            <select class="form-control" id="exampleFormControlSelect1" name="id_paq" [(ngModel)]="elements.id_paq">
+  
+                <option [value]="item.id" *ngFor="let item of paqueterias">{{item.nombre}}</option>
+  
+            </select>
+  
+   
+  
+        </div>
+  
+   
+  
+        <div class="form-group">
+  
+          <label for="exampleFormControlInput1">Fecha:</label>
+  
+          <input type="date" class="form-control" name="fecha" placeholder="" [(ngModel)]="elements.fecha" >
+  
+        </div>
+  
+            <button type="submit" class="btn btn-primary">Submit</button>
+  
+        </form>
+  
+    </div>
+  
+  </div>

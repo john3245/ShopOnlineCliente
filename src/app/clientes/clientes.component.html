@@ -1,0 +1,69 @@
+<div class="container" *ngIf="auth.isLoggedIn() || auth.loggedIn || user ">
+
+    <div class="row">
+    
+      <div class="card spur-card">
+    
+        <div class="card-header">
+    
+            <div class="spur-card-icon">
+    
+                <i class="fas fa-table"></i>
+    
+            </div>
+    
+            <div class="spur-card-title">Clientes</div>
+    
+        </div>
+    
+        <div class="card-body card-body-with-dark-table">
+    
+            <table class="table table-dark table-in-card">
+    
+                <thead>
+    
+                    <tr>
+    
+                        <th scope="col">#</th>
+    
+                        <th scope="col">Nombre</th>
+    
+                        <th scope="col">Apellidos</th>
+    
+                        <th scope="col">Email</th>
+    
+                    </tr>
+    
+                </thead>
+    
+                <tbody *ngFor="let item of clientes">
+    
+                    <tr>
+    
+                        <th  scope="row">{{item?.id}}</th>
+    
+                        <td>{{item?.nombre}}</td>
+    
+                        <td>{{item?.apellidos}}</td>
+    
+                        <td>{{item?.email}}</td>
+    
+                        <td><button type="button" (click)="Borrar(item.id)" class="btn btn-danger">Borrar</button></td>
+    
+     
+    
+                    </tr>
+    
+     
+    
+                </tbody>
+    
+            </table>
+    
+        </div>
+    
+    </div>
+    
+    </div>
+    
+    </div>

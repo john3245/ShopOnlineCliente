@@ -1,0 +1,20 @@
+
+<div *ngIf="user" >
+<img src="{{ user.photoUrl }}">
+<div>
+  <h4>{{ user.name }}</h4>
+  <p>{{ user.email }}</p>
+</div>
+
+</div>
+
+<div *ngIf="auth.loggedIn">
+<pre *ngIf="auth.userProfile$ | async as profile">
+  <!--<code>{{ profile | json }}</code>-->
+  <img src="{{profile?.picture}}">
+  <div>
+  <h1>Nickname :  {{ profile?.nickname}}</h1>
+  <h4>Name :{{ profile?.name}}</h4>
+
+</div>
+  </pre></div>

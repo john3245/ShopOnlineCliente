@@ -1,0 +1,35 @@
+<div *ngIf="auth.isLoggedIn() || auth.loggedIn || user "  class="col-lg-6">
+    <div class="card spur-card">
+        <div class="card-header">
+            <div class="spur-card-icon">
+                <i class="
+                fas fa-truck-moving"></i>
+            </div>
+            <div class="spur-card-title">Proveedores</div>
+        </div>
+        <div class="card-body card-body-with-dark-table">
+            <table class="table table-dark table-in-card">
+                <thead>
+                    <tr>
+                       
+                        <th scope="col">Nombre del Proveedores</th>
+                        <th scope="col">Direccion</th>
+                        
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of proveedor">
+                    <tr>
+                        
+                        <td>{{item?.nombre}}</td>
+                        <td>{{item?.direccion}}</td>
+                        <!--<td><button type="button" (click)="Borrar(item.id)" class="btn btn-danger">Borrar</button></td>
+    
+                        -->
+                    </tr>
+                    
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
